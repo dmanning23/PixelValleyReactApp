@@ -1,6 +1,5 @@
 import React from 'react';
 import { Sprite } from '@pixi/react';
-import building from "../../building.png"
 import OverworldChibis from './OverworldChibis';
 
 const OverworldLocation = (props) => {
@@ -8,7 +7,7 @@ const OverworldLocation = (props) => {
     return (
         <>
             <Sprite
-                image={building}
+                image={`https://dyifmflum502e.cloudfront.net/${props.location.resizedImageFilename}`}
                 x={props.x}
                 y={props.y}
                 width={512 * props.widthMultiplier}

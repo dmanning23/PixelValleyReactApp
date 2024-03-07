@@ -1,6 +1,5 @@
 import React from 'react';
 import { Sprite } from '@pixi/react';
-import chibi from "../../chibi.png"
 
 const OverworldChibi = (props) => {
 
@@ -8,7 +7,7 @@ const OverworldChibi = (props) => {
     return (
         <>
             <Sprite
-                image={chibi}
+                image={`https://dyifmflum502e.cloudfront.net/${props.agent.agentDescription.resizedChibiFilename}`}
                 x={props.x}
                 y={props.y}
                 width={108 * props.widthMultiplier}

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Stage, Container, Sprite, Text } from '@pixi/react';
-import bg from "../../bg.png"
 import GameWindowSize from '../../GameWindowSize';
 import OverworldLocations from './OverworldLocations';
 
@@ -14,7 +13,7 @@ const OverworldBackground = (props) => {
             height={gameWindowSize.height}
             options={{ backgroundColor: 0xff00ff, antialias: true }}>
             <Sprite
-                image={bg}
+                image={`https://dyifmflum502e.cloudfront.net/${props.scenario.imageFilename}`}
                 x={gameWindowSize.width / 2}
                 y={gameWindowSize.height / 2}
                 width={gameWindowSize.width}
