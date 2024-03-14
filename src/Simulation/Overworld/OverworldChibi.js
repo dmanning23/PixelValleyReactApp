@@ -10,8 +10,8 @@ const OverworldChibi = (props) => {
                 image={`https://dyifmflum502e.cloudfront.net/${props.agent.agentDescription.resizedChibiFilename}`}
                 x={props.x}
                 y={props.y}
-                width={108 * props.widthMultiplier}
-                height={108 * props.heightMultiplier}
+                width={96 * props.widthMultiplier}
+                height={96 * props.heightMultiplier}
                 anchor={{ x: 0.5, y: 0.5 }} />
         </>
     );

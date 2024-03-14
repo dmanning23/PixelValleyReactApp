@@ -2,10 +2,20 @@ import React from 'react';
 import { Stage, Container, Sprite, Text } from '@pixi/react';
 import GameWindowSize from '../../GameWindowSize';
 import OverworldLocations from './OverworldLocations';
+import OverworldCharacters from './OverworldCharacters';
 
 const OverworldBackground = (props) => {
 
     const gameWindowSize = GameWindowSize({ width: 2048, height: 1024});
+
+    //Get teh location of the outside cahracters
+    let currentY = 0
+    if (props.scenario.locations.length >= 9) {
+        currentY = gameWindowSize.height * 0.8
+    }
+    else {
+        currentY = gameWindowSize.height * 0.72
+    }
 
     return (
         <Stage 
@@ -26,6 +36,14 @@ const OverworldBackground = (props) => {
                 height={gameWindowSize.height}
                 widthMultiplier={gameWindowSize.widthMultiplier}
                 heightMultiplier={gameWindowSize.heightMultiplier} />
+
+            <OverworldCharacters
+                scenario={props.scenario} 
+                width={gameWindowSize.width}
+                height={gameWindowSize.height}
+                widthMultiplier={gameWindowSize.widthMultiplier}
+                heightMultiplier={gameWindowSize.heightMultiplier} 
+                y={currentY}/>
         
             <Container>
                 <Text text="Hello World" anchor={{ x: 0, y: 0 }} />
