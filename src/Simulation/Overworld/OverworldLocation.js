@@ -2,9 +2,12 @@ import React from 'react';
 import { Sprite } from '@pixi/react';
 import OverworldChibis from './OverworldChibis';
 import '@pixi/events';
-import { Navigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const OverworldLocation = (props) => {
+
+    //This prevents the app from loading:
+    const navigate = useNavigate();
 
     return (
         <>
@@ -18,7 +21,9 @@ const OverworldLocation = (props) => {
                 eventMode={"static"}
                 pointerdown={() => { 
                     console.log("click");
-                    return <Navigate to={`/location/${props.location._id}`} replace={true}/>}}
+                    //navigate to the selected location
+                    navigate(`/location/${props.location._id}`);
+                }}
             />
 
             <OverworldChibis
