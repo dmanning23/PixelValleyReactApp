@@ -3,6 +3,8 @@ import { Stage, Container, Sprite, Text } from '@pixi/react';
 import GameWindowSize from '../../GameWindowSize';
 import OverworldLocations from './OverworldLocations';
 import OverworldCharacters from './OverworldCharacters';
+//import { Stage } from '../../Stage';
+import { useNavigate } from 'react-router-dom';
 
 const OverworldBackground = (props) => {
 
@@ -16,6 +18,8 @@ const OverworldBackground = (props) => {
     else {
         currentY = gameWindowSize.height * 0.72
     }
+
+    const navigate = useNavigate();
 
     return (
         <Stage 
@@ -31,6 +35,7 @@ const OverworldBackground = (props) => {
                 anchor={{ x: 0.5, y: 0.5 }} />
 
             <OverworldLocations 
+                Context={props.Context}
                 scenario={props.scenario} 
                 width={gameWindowSize.width}
                 height={gameWindowSize.height}

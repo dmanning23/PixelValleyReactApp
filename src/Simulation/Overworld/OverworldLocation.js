@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const OverworldLocation = (props) => {
 
-    //This prevents the app from loading:
+    //This throws an error:
     const navigate = useNavigate();
 
     return (
@@ -22,7 +22,7 @@ const OverworldLocation = (props) => {
                 pointerdown={() => { 
                     console.log("click");
                     //navigate to the selected location
-                    navigate(`/location/${props.location._id}`);
+                    //navigate(`/location/${props.location._id}`);
                 }}
             />
 
