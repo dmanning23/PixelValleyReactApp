@@ -6,7 +6,7 @@ const InteriorBackground = (props) => {
 
     const gameWindowSize = GameWindowSize({ width: 2048, height: 1024});
 
-    let currentY = gameWindowSize.height * 0.15
+    let currentY = gameWindowSize.height * 0.22
 
     const divStyle = {
         position: 'relative'
@@ -29,8 +29,8 @@ const InteriorBackground = (props) => {
                 location={props.location} 
                 width={gameWindowSize.width}
                 height={gameWindowSize.height}
-                widthMultiplier={gameWindowSize.widthMultiplier * 0.9}
-                heightMultiplier={gameWindowSize.heightMultiplier * 0.9} 
+                widthMultiplier={gameWindowSize.widthMultiplier * 0.83}
+                heightMultiplier={gameWindowSize.heightMultiplier * 0.83} 
                 y={currentY}/>
         </div>
       );
