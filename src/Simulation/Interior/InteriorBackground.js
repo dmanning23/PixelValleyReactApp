@@ -1,28 +1,38 @@
 import React from 'react';
-import { Stage, Container, Sprite, Text } from '@pixi/react';
 import GameWindowSize from '../../GameWindowSize';
+import InteriorCharacters from './InteriorCharacters';
 
 const InteriorBackground = (props) => {
 
     const gameWindowSize = GameWindowSize({ width: 2048, height: 1024});
 
+    let currentY = gameWindowSize.height * 0.15
+
+    const divStyle = {
+        position: 'relative'
+    };
+
+    const backgroundStyle = {
+        position: 'absolute',
+        zIndex: 1
+    };
+
     return (
-        <Stage 
-            width={gameWindowSize.width} 
-            height={gameWindowSize.height}
-            options={{ backgroundColor: 0xff00ff, antialias: true }}>
-            <Sprite
-                image={`https://dyifmflum502e.cloudfront.net/${props.location.resizedImageInteriorFilename}`}
-                x={gameWindowSize.width / 2}
-                y={gameWindowSize.height / 2}
+        <div style={divStyle}>
+            <img
+                src={`https://dyifmflum502e.cloudfront.net/${props.location.resizedImageInteriorFilename}`}
                 width={gameWindowSize.width}
                 height={gameWindowSize.height}
-                anchor={{ x: 0.5, y: 0.5 }} />
-
-            <Container>
-                <Text text="Hello World" anchor={{ x: 0, y: 0 }} />
-            </Container>
-        </Stage>
+                style={backgroundStyle}>
+            </img>
+            <InteriorCharacters
+                location={props.location} 
+                width={gameWindowSize.width}
+                height={gameWindowSize.height}
+                widthMultiplier={gameWindowSize.widthMultiplier * 0.9}
+                heightMultiplier={gameWindowSize.heightMultiplier * 0.9} 
+                y={currentY}/>
+        </div>
       );
 }
 

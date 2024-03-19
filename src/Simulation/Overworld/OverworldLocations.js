@@ -14,10 +14,10 @@ const OverworldLocations = (props) => {
     let locationHeight = props.height / 4.5
     let currentY = 0
     if (props.scenario.locations.length >= 9) {
-        let locationStartX = (props.width / 2) - (((3 * locationWidth) / 2) - (locationWidth / 4))
+        let locationStartX = (props.width / 2) - (locationWidth / 2) - (((3 * locationWidth) / 2) - (locationWidth / 4))
         
         let currentX = locationStartX
-        currentY = props.height * 0.22
+        currentY = props.height * 0.12
         for (let i = 0; i < 3; i++) {
             createLocation(props.scenario.locations[i], currentX, currentY)
             currentX += locationWidth
@@ -41,9 +41,9 @@ const OverworldLocations = (props) => {
         currentY += 96
     }
     else if (props.scenario.locations.length % 2) {
-        let locationStartX = (props.width / 2) - ((((props.scenario.locations.length / 2) * locationWidth) / 2) - (locationWidth / 4))
+        let locationStartX = (props.width / 2) - (locationWidth / 2) - ((((props.scenario.locations.length / 2) * locationWidth) / 2) - (locationWidth / 4))
         let currentX = locationStartX
-        currentY = props.height * 0.36
+        currentY = props.height * 0.2
         for (let i = 0; i <= Math.floor(props.scenario.locations.length / 2); i++) {
             createLocation(props.scenario.locations[i], currentX, currentY)
             currentX += locationWidth
@@ -59,9 +59,9 @@ const OverworldLocations = (props) => {
         currentY += 132
     }
     else {
-        let locationStartX = (props.width / 2) - ((((props.scenario.locations.length / 2) * locationWidth) / 2) - (locationWidth / 4))
+        let locationStartX = (props.width / 2) - (locationWidth / 2) - ((((props.scenario.locations.length / 2) * locationWidth) / 2) - (locationWidth / 4))
         let currentX = locationStartX
-        currentY = props.height * 0.36
+        currentY = props.height * 0.2
         for (let i = 0; i < Math.floor(props.scenario.locations.length / 2); i++) {
             createLocation(props.scenario.locations[i], currentX, currentY)
             currentX += locationWidth

@@ -1,7 +1,7 @@
 import React from 'react';
-import OverworldCharacter from './OverworldCharacter';
+import InteriorCharacter from './InteriorCharacter';
 
-const OverworldCharacters = (props) => {
+const InteriorCharacters = (props) => {
 
     //Create a list of the x and y for each character
     let characters = [];
@@ -9,20 +9,22 @@ const OverworldCharacters = (props) => {
         characters.push({agent: agent, x: x, y:y});
     };
 
+    //character size = 512 * 896
+
     //add the chibi heads for characters that are inside
-    if (props.scenario.outsideAgents.length > 0) {
-        let characterWidth = (148 * props.heightMultiplier)
-        let totalWidth = (characterWidth * props.scenario.outsideAgents.length)
-        let characterX = ((props.width / 2) - (totalWidth / 2)) + (characterWidth / 2)
+    if (props.location.agents.length > 0) {
+        let characterWidth = (512 * props.widthMultiplier)
+        let totalWidth = (characterWidth * props.location.agents.length)
+        let characterX = ((props.width / 2) - (totalWidth / 2))
         let characterY = props.y
-        for (let i = 0; i < props.scenario.outsideAgents.length; i++) {
-            createCharacter(props.scenario.outsideAgents[i], characterX, characterY)
+        for (let i = 0; i < props.location.agents.length; i++) {
+            createCharacter(props.location.agents[i], characterX, characterY)
             characterX += characterWidth
         }
     }
 
     const listCharacters = characters.map((character) => 
-        <OverworldCharacter
+        <InteriorCharacter
             key={character.agent._id}
             agent={character.agent} 
             x={character.x}
@@ -42,4 +44,4 @@ const OverworldCharacters = (props) => {
     );
 }
 
-export default OverworldCharacters;
+export default InteriorCharacters;

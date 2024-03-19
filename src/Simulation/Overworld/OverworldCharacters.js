@@ -13,7 +13,7 @@ const OverworldCharacters = (props) => {
     if (props.scenario.outsideAgents.length > 0) {
         let characterWidth = (148 * props.heightMultiplier)
         let totalWidth = (characterWidth * props.scenario.outsideAgents.length)
-        let characterX = ((props.width / 2) - (totalWidth / 2)) + (characterWidth / 2)
+        let characterX = ((props.width / 2) - (totalWidth / 2))
         let characterY = props.y
         for (let i = 0; i < props.scenario.outsideAgents.length; i++) {
             createCharacter(props.scenario.outsideAgents[i], characterX, characterY)

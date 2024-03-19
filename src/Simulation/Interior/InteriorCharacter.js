@@ -1,19 +1,22 @@
 import React from 'react';
 import { Sprite } from '@pixi/react';
 
-const OverworldCharacter = (props) => {
+const InteriorCharacter = (props) => {
+
+    const characterStyle = {
+        position: 'absolute',
+        zIndex: 2,
+        left: props.x,
+        top: props.y
+    };
 
     return (
-        <>
-            <Sprite
-                image={`https://dyifmflum502e.cloudfront.net/${props.agent.agentDescription.resizedIconFilename}`}
-                x={props.x}
-                y={props.y}
-                width={128 * props.widthMultiplier}
-                height={224 * props.heightMultiplier}
-                anchor={{ x: 0.5, y: 0.5 }} />
-        </>
+        <img
+            src={`https://dyifmflum502e.cloudfront.net/${props.agent.agentDescription.iconFilename}`}
+            width={512 * props.widthMultiplier}
+            height={896 * props.heightMultiplier}
+            style={ characterStyle }/>
     );
 }
 
-export default OverworldCharacter
+export default InteriorCharacter

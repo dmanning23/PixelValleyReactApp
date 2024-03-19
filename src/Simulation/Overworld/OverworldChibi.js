@@ -1,19 +1,20 @@
 import React from 'react';
-import { Sprite } from '@pixi/react';
 
 const OverworldChibi = (props) => {
 
-        //chibi.scale *= 0.8
+    const chibiStyle = {
+        position: 'absolute',
+        zIndex: 3,
+        left: props.x,
+        top: props.y
+    };
+
     return (
-        <>
-            <Sprite
-                image={`https://dyifmflum502e.cloudfront.net/${props.agent.agentDescription.resizedChibiFilename}`}
-                x={props.x}
-                y={props.y}
-                width={96 * props.widthMultiplier}
-                height={96 * props.heightMultiplier}
-                anchor={{ x: 0.5, y: 0.5 }} />
-        </>
+        <img
+            src={`https://dyifmflum502e.cloudfront.net/${props.agent.agentDescription.resizedChibiFilename}`}
+            width={96 * props.widthMultiplier}
+            height={96 * props.heightMultiplier}
+            style={chibiStyle}/>
     );
 }
 

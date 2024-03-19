@@ -1,37 +1,35 @@
 import React from 'react';
-import { Sprite } from '@pixi/react';
 import OverworldChibis from './OverworldChibis';
-import '@pixi/events';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import {  } from 'react-router-dom';
 
 const OverworldLocation = (props) => {
 
+    //TODO: zIndex should be cleaned up 
+    const locationStyle = {
+        position: 'absolute',
+        zIndex: 2,
+        left: props.x,
+        top: props.y
+    };
+
     return (
-        <>
-            <Sprite
-                image={`https://dyifmflum502e.cloudfront.net/${props.location.resizedImageFilename}`}
-                x={props.x}
-                y={props.y}
+        <Link to={`/location/${props.location._id}`}>
+            <img
+                src={`https://dyifmflum502e.cloudfront.net/${props.location.resizedImageFilename}`}
                 width={512 * props.widthMultiplier}
                 height={341 * props.heightMultiplier}
-                anchor={{ x: 0.5, y: 0.5 }}
-                eventMode={"static"}
-                pointerdown={
-                    () => { 
-                    console.log("click");
-                    //const navigate = useNavigate();
-                    //navigate to the selected location
-                    //navigate(`/location/${props.location._id}`);
-                }}
+                style={locationStyle}
             />
-
             <OverworldChibis
                 location={props.location}
                 x={props.x}
                 y={props.y}
+                width={512 * props.widthMultiplier}
+                height={341 * props.heightMultiplier}
                 widthMultiplier={props.widthMultiplier}
                 heightMultiplier={props.heightMultiplier} />
-        </>
+        </Link>
     );
 }
 
