@@ -1,10 +1,8 @@
 import React from 'react';
-import { Stage, Container, Sprite, Text } from '@pixi/react';
+import { Stage, Sprite } from '@pixi/react';
 import GameWindowSize from '../../GameWindowSize';
 import OverworldLocations from './OverworldLocations';
 import OverworldCharacters from './OverworldCharacters';
-//import { Stage } from '../../Stage';
-import { useNavigate } from 'react-router-dom';
 
 const OverworldBackground = (props) => {
 
@@ -18,41 +16,33 @@ const OverworldBackground = (props) => {
     else {
         currentY = gameWindowSize.height * 0.72
     }
-
-    const navigate = useNavigate();
-
+    
     return (
         <Stage 
             width={gameWindowSize.width} 
             height={gameWindowSize.height}
             options={{ backgroundColor: 0xff00ff, antialias: true }}>
-            <Sprite
-                image={`https://dyifmflum502e.cloudfront.net/${props.scenario.imageFilename}`}
-                x={gameWindowSize.width / 2}
-                y={gameWindowSize.height / 2}
-                width={gameWindowSize.width}
-                height={gameWindowSize.height}
-                anchor={{ x: 0.5, y: 0.5 }} />
+                <Sprite
+                    image={`https://dyifmflum502e.cloudfront.net/${props.scenario.imageFilename}`}
+                    x={gameWindowSize.width / 2}
+                    y={gameWindowSize.height / 2}
+                    width={gameWindowSize.width}
+                    height={gameWindowSize.height}
+                    anchor={{ x: 0.5, y: 0.5 }} />
+                <OverworldLocations 
+                    scenario={props.scenario} 
+                    width={gameWindowSize.width}
+                    height={gameWindowSize.height}
+                    widthMultiplier={gameWindowSize.widthMultiplier}
+                    heightMultiplier={gameWindowSize.heightMultiplier} />
 
-            <OverworldLocations 
-                Context={props.Context}
-                scenario={props.scenario} 
-                width={gameWindowSize.width}
-                height={gameWindowSize.height}
-                widthMultiplier={gameWindowSize.widthMultiplier}
-                heightMultiplier={gameWindowSize.heightMultiplier} />
-
-            <OverworldCharacters
-                scenario={props.scenario} 
-                width={gameWindowSize.width}
-                height={gameWindowSize.height}
-                widthMultiplier={gameWindowSize.widthMultiplier}
-                heightMultiplier={gameWindowSize.heightMultiplier} 
-                y={currentY}/>
-        
-            <Container>
-                <Text text="Hello World" anchor={{ x: 0, y: 0 }} />
-            </Container>
+                <OverworldCharacters
+                    scenario={props.scenario} 
+                    width={gameWindowSize.width}
+                    height={gameWindowSize.height}
+                    widthMultiplier={gameWindowSize.widthMultiplier}
+                    heightMultiplier={gameWindowSize.heightMultiplier} 
+                    y={currentY}/>
         </Stage>
       );
 }

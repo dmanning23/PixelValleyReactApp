@@ -6,9 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 const OverworldLocation = (props) => {
 
-    //This throws an error:
-    const navigate = useNavigate();
-
     return (
         <>
             <Sprite
@@ -19,8 +16,10 @@ const OverworldLocation = (props) => {
                 height={341 * props.heightMultiplier}
                 anchor={{ x: 0.5, y: 0.5 }}
                 eventMode={"static"}
-                pointerdown={() => { 
+                pointerdown={
+                    () => { 
                     console.log("click");
+                    //const navigate = useNavigate();
                     //navigate to the selected location
                     //navigate(`/location/${props.location._id}`);
                 }}
