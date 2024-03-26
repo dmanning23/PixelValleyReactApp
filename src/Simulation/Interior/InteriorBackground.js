@@ -1,6 +1,7 @@
 import React from 'react';
 import GameWindowSize from '../../GameWindowSize';
 import InteriorCharacters from './InteriorCharacters';
+import LocationLabel from './LocationLabel';
 
 const InteriorBackground = (props) => {
 
@@ -19,12 +20,16 @@ const InteriorBackground = (props) => {
 
     return (
         <div style={divStyle}>
-            <img
-                src={`https://dyifmflum502e.cloudfront.net/${props.location.resizedImageInteriorFilename}`}
-                width={gameWindowSize.width}
-                height={gameWindowSize.height}
-                style={backgroundStyle}>
-            </img>
+            <div className="d-flex justify-content-center">
+                <img
+                    src={`https://dyifmflum502e.cloudfront.net/${props.location.resizedImageInteriorFilename}`}
+                    width={gameWindowSize.width}
+                    height={gameWindowSize.height}
+                    style={backgroundStyle}>
+                </img>
+                <LocationLabel
+                    location={props.location} />
+            </div>
             <InteriorCharacters
                 location={props.location} 
                 width={gameWindowSize.width}
