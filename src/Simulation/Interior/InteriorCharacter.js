@@ -1,5 +1,4 @@
 import React from 'react';
-import { Sprite } from '@pixi/react';
 
 const InteriorCharacter = (props) => {
 

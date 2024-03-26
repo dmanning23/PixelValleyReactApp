@@ -1,8 +1,8 @@
 import React from 'react';
-import { Stage, Sprite } from '@pixi/react';
 import GameWindowSize from '../../GameWindowSize';
 import OverworldLocations from './OverworldLocations';
 import OverworldCharacters from './OverworldCharacters';
+import OverworldLabel from './OverworldLabel';
 
 const OverworldBackground = (props) => {
 
@@ -28,13 +28,17 @@ const OverworldBackground = (props) => {
     };
 
     return (
-        <div style={divStyle}>
-            <img
-                src={`https://dyifmflum502e.cloudfront.net/${props.scenario.imageFilename}`}
-                width={gameWindowSize.width}
-                height={gameWindowSize.height}
-                style={backgroundStyle}>
-            </img>
+        <div  style={divStyle}>
+            <div className="d-flex justify-content-center">
+                <img
+                    src={`https://dyifmflum502e.cloudfront.net/${props.scenario.imageFilename}`}
+                    width={gameWindowSize.width}
+                    height={gameWindowSize.height}
+                    style={backgroundStyle}>
+                </img>
+                <OverworldLabel
+                    scenario={props.scenario} />
+            </div>
             <OverworldLocations 
                 scenario={props.scenario} 
                 width={gameWindowSize.width}

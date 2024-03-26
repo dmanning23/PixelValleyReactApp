@@ -13,6 +13,7 @@ const GET_OVERWORLD = gql`
                 imageFilename
                 name
                 description
+                currentDateTime
                 outsideAgents
                 {
                     _id

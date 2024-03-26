@@ -1,7 +1,7 @@
 import React from 'react';
 import OverworldChibis from './OverworldChibis';
-import { useNavigate, Link } from 'react-router-dom';
-import {  } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import LocationLabel from './LocationLabel';
 
 const OverworldLocation = (props) => {
 
@@ -14,22 +14,35 @@ const OverworldLocation = (props) => {
     };
 
     return (
-        <Link to={`/location/${props.location._id}`}>
-            <img
-                src={`https://dyifmflum502e.cloudfront.net/${props.location.resizedImageFilename}`}
-                width={512 * props.widthMultiplier}
-                height={341 * props.heightMultiplier}
-                style={locationStyle}
-            />
-            <OverworldChibis
-                location={props.location}
+        <div  
+            id={props.location.name}
+            className="d-flex" 
+            style={locationStyle}
+            width={512 * props.widthMultiplier}
+            height={341 * props.heightMultiplier}>
+            <Link 
+                to={`/location/${props.location._id}`}>
+                <img
+                    src={`https://dyifmflum502e.cloudfront.net/${props.location.resizedImageFilename}`}
+                    width={512 * props.widthMultiplier}
+                    height={341 * props.heightMultiplier}
+                />
+                <OverworldChibis
+                    location={props.location}
+                    x={props.x}
+                    y={props.y}
+                    width={512 * props.widthMultiplier}
+                    height={341 * props.heightMultiplier}
+                    widthMultiplier={props.widthMultiplier}
+                    heightMultiplier={props.heightMultiplier} />
+            </Link>
+            <LocationLabel 
                 x={props.x}
                 y={props.y}
                 width={512 * props.widthMultiplier}
                 height={341 * props.heightMultiplier}
-                widthMultiplier={props.widthMultiplier}
-                heightMultiplier={props.heightMultiplier} />
-        </Link>
+                location={props.location} />
+        </div>
     );
 }
 

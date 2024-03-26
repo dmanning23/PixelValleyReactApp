@@ -14,8 +14,8 @@ const OverworldChibis = (props) => {
         let chibiWidth = (96 * props.widthMultiplier);
         let chibiHeight = (96 * props.heightMultiplier);
         let totalWidth = (chibiWidth * props.location.allAgents.length);
-        let chibiX = ((props.x + (props.width / 2)) - (totalWidth / 2));
-        let chibiY = props.y + (chibiHeight / 2);
+        let chibiX = ((0 + (props.width / 2)) - (totalWidth / 2));
+        let chibiY = 0 + (chibiHeight / 2);
         for (let i = 0; i < props.location.allAgents.length; i++) {
             createChibi(props.location.allAgents[i], chibiX, chibiY);
             chibiX += chibiWidth;
