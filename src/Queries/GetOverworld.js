@@ -20,10 +20,12 @@ const GET_OVERWORLD = gql`
                     agentDescription
                     {
                         resizedIconFilename
+                        portraitFilename
                     }
                     name
                     status
                     emoji
+                    description
                 }
                 locations
                 {

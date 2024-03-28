@@ -22,10 +22,12 @@ const GET_LOCATION = gql`
                     agentDescription
                     {
                         iconFilename
+                        portraitFilename
                     }
                     name
                     status
                     emoji
+                    description
                 }
                 locations
                 {

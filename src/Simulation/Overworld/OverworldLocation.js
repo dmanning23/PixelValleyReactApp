@@ -27,15 +27,15 @@ const OverworldLocation = (props) => {
                     width={512 * props.widthMultiplier}
                     height={341 * props.heightMultiplier}
                 />
-                <OverworldChibis
-                    location={props.location}
-                    x={props.x}
-                    y={props.y}
-                    width={512 * props.widthMultiplier}
-                    height={341 * props.heightMultiplier}
-                    widthMultiplier={props.widthMultiplier}
-                    heightMultiplier={props.heightMultiplier} />
             </Link>
+            <OverworldChibis
+                location={props.location}
+                x={props.x}
+                y={props.y}
+                width={512 * props.widthMultiplier}
+                height={341 * props.heightMultiplier}
+                widthMultiplier={props.widthMultiplier}
+                heightMultiplier={props.heightMultiplier} />
             <LocationLabel 
                 x={props.x}
                 y={props.y}

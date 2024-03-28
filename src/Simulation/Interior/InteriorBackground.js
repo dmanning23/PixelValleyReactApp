@@ -2,6 +2,8 @@ import React from 'react';
 import GameWindowSize from '../../GameWindowSize';
 import InteriorCharacters from './InteriorCharacters';
 import LocationLabel from './LocationLabel';
+import ExitButton from './ExitButton';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 const InteriorBackground = (props) => {
 
@@ -15,21 +17,25 @@ const InteriorBackground = (props) => {
 
     const backgroundStyle = {
         position: 'absolute',
-        zIndex: 1
+        zIndex: -1
     };
 
     return (
         <div style={divStyle}>
-            <div className="d-flex justify-content-center">
-                <img
-                    src={`https://dyifmflum502e.cloudfront.net/${props.location.resizedImageInteriorFilename}`}
-                    width={gameWindowSize.width}
-                    height={gameWindowSize.height}
-                    style={backgroundStyle}>
-                </img>
-                <LocationLabel
-                    location={props.location} />
-            </div>
+            <img
+                src={`https://dyifmflum502e.cloudfront.net/${props.location.resizedImageInteriorFilename}`}
+                width={gameWindowSize.width}
+                height={gameWindowSize.height}
+                style={backgroundStyle}>
+            </img>
+            <Row style={{padding: '16px'}}>
+                <Col xs={6} md={3}>
+                    <ExitButton/>
+                </Col>
+                <Col xs={6} md={{ span: 6, offset: 2 }} >
+                    <LocationLabel location={props.location}/>
+                </Col>
+            </Row>
             <InteriorCharacters
                 location={props.location} 
                 width={gameWindowSize.width}

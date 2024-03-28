@@ -29,15 +29,17 @@ const OverworldBackground = (props) => {
 
     return (
         <div  style={divStyle}>
-            <div className="d-flex justify-content-center">
+            <div>
                 <img
                     src={`https://dyifmflum502e.cloudfront.net/${props.scenario.imageFilename}`}
                     width={gameWindowSize.width}
                     height={gameWindowSize.height}
                     style={backgroundStyle}>
                 </img>
-                <OverworldLabel
-                    scenario={props.scenario} />
+                <div className="d-flex justify-content-center container pt-4">
+                    <OverworldLabel
+                        scenario={props.scenario} />
+                </div>
             </div>
             <OverworldLocations 
                 scenario={props.scenario} 

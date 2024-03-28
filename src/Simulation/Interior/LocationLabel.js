@@ -11,7 +11,7 @@ const LocationLabel = (props) => {
     return (
         <>
             <Button 
-                style={{zIndex:4, marginTop:16}}
+                style={{zIndex:4}}
                 type="button" 
                 className="btn btn-secondary btn-lg" 
                 onClick={handleShow}>
