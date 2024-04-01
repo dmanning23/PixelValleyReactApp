@@ -19,7 +19,7 @@ function App() {
         <Routes>
             <Route exact path="/" element={
                 <ApolloProvider client={client}>
-                    <Overworld scenarioId={'66044d8e18e6fc04d16623c2'}/>
+                    <Overworld scenarioId={'6603768518e6fc04d166200e'}/>
                 </ApolloProvider>}
             />
             <Route path="/location/:id" element={

@@ -1,6 +1,6 @@
 import React from 'react';
 import Status from './Status';
-import CharacterLabel from '../CharacterLabel';
+import CharacterLabel from '../Agent/CharacterLabel';
 
 const InteriorCharacter = (props) => {
 

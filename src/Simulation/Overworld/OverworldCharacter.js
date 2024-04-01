@@ -1,6 +1,6 @@
 import React from 'react';
 import Emoji from './Emoji';
-import CharacterLabel from '../CharacterLabel';
+import CharacterLabel from '../Agent/CharacterLabel';
 
 const OverworldCharacter = (props) => {
 
