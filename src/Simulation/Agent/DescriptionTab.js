@@ -11,14 +11,13 @@ const DescriptionTab = (props) => {
 
     return (
         <div>
-            <div className="border">
+            <div className="border border-primary">
                 <p>Hair: {props.agent.agentDescription.hair}</p>
             </div>
-            <div className="border">
+            <div className="border border-primary">
                 <p>Eyes: {props.agent.agentDescription.eyes}</p>
             </div>
-            <div className="border">
-                <p>Clothing:</p>
+            <div className="border border-primary">
                 <Paper
                     sx={{
                         display: 'flex',
@@ -30,6 +29,7 @@ const DescriptionTab = (props) => {
                     }}
                     component="ul"
                     >
+                    <p>Clothing:</p>
                     {props.agent.agentDescription.clothing.map((data, index) => {
                         return (
                         <ListItem>
@@ -41,8 +41,7 @@ const DescriptionTab = (props) => {
                     })}
                 </Paper>
             </div>
-            <div className="border">
-                <p>Distinguishing Features:</p>
+            <div className="border border-primary">
                 <Paper
                     sx={{
                         display: 'flex',
@@ -54,6 +53,7 @@ const DescriptionTab = (props) => {
                     }}
                     component="ul"
                     >
+                    <p>Distinguishing Features:</p>
                     {props.agent.agentDescription.distinguishingFeatures.map((data, index) => {
                         return (
                         <ListItem>

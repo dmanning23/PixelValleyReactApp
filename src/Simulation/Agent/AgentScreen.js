@@ -1,25 +1,24 @@
 import React from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+import { Tabs, Tab } from "react-bootstrap";
 import GeneralTab from './GeneralTab';
 import DescriptionTab from './DescriptionTab';
+import GoalsTab from './GoalsTab';
 
 const AgentScreen = (props) => {
 
     return (
-        <Tabs>
-            <TabList>
-                <Tab>General</Tab>
-                <Tab>Description</Tab>
-            </TabList>
 
-            <TabPanel>
-                <GeneralTab agent={props.agent}/>
-            </TabPanel>
-            <TabPanel>
-                <DescriptionTab agent={props.agent}/>
-            </TabPanel>
-        </Tabs>
+    <Tabs>
+        <Tab eventKey="home" title="Home">
+            <GeneralTab agent={props.agent}/>
+        </Tab>
+        <Tab eventKey="description" title="Description">
+            <DescriptionTab agent={props.agent}/>
+        </Tab>
+        <Tab eventKey="goals" title="Goals">
+            <GoalsTab agent={props.agent}/>
+        </Tab>
+    </Tabs>
     );
 }
 
