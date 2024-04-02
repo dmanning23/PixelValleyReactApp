@@ -19,8 +19,7 @@ const InteriorCharacter = (props) => {
                     position: 'absolute',
                     zIndex: 2,
                     top: '16px' }}/>
-            <Status 
-                agent={props.agent}/>
+            <Status agent={props.agent}/>
             <CharacterLabel 
                 agent={props.agent}
                 buttonSize='btn-lg'

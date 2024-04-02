@@ -58,6 +58,13 @@ const GET_AGENT = gql`
                     canBePickedUp
                     locationId
                 }
+                currentActivity
+                {
+                    description
+                    timeFrame
+                    startDateTime
+                    endDateTime
+                }
             }
         },
     }`

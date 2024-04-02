@@ -6,7 +6,7 @@ const GoalsTab = (props) => {
         <div>
             {props.agent.goals.map((data, index) => {
                 return (
-                    <div className="border border-primary">
+                    <div className="border border-dark" key={index}>
                         <p>Goal: {data.title}</p>
                         <p>Time Frame: {data.timeFrame}</p>
                         <p>{data.description}</p>

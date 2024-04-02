@@ -3,6 +3,7 @@ import { Tabs, Tab } from "react-bootstrap";
 import GeneralTab from './GeneralTab';
 import DescriptionTab from './DescriptionTab';
 import GoalsTab from './GoalsTab';
+import PlannedActivitiesTab from './PlannedActivitiesTab';
 
 const AgentScreen = (props) => {
 
@@ -17,6 +18,9 @@ const AgentScreen = (props) => {
         </Tab>
         <Tab eventKey="goals" title="Goals">
             <GoalsTab agent={props.agent}/>
+        </Tab>
+        <Tab eventKey="plannedActivities" title="Tasks">
+            <PlannedActivitiesTab agent={props.agent}/>
         </Tab>
     </Tabs>
     );
