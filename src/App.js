@@ -6,7 +6,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
 const client = new ApolloClient({
-    uri: 'http://127.0.0.1:5000/graphql',
+    uri: 'https://pixelvalleygraphql-f5b204ed1432.herokuapp.com/graphql',
     cache: new InMemoryCache(),
     fetchOptions: {
         mode: 'no-cors'
