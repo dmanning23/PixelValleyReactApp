@@ -24,7 +24,8 @@ const OverworldBackground = (props) => {
 
     const backgroundStyle = {
         position: 'absolute',
-        zIndex: 1
+        zIndex: 1,
+        //filter: 'grayscale(20%) brightness(45%) blur(2px)'
     };
 
     return (

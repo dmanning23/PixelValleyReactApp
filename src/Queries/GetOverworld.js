@@ -2,6 +2,7 @@ import {gql, useQuery} from '@apollo/client'
 import React from 'react';
 import ReactLoading from 'react-loading';
 import OverworldBackground from '../Simulation/Overworld/OverworldBackground';
+import { useParams } from 'react-router-dom';
 
 const GET_OVERWORLD = gql`
     query Scenario($scenarioId: ID!) {
@@ -49,8 +50,11 @@ const GET_OVERWORLD = gql`
     }`
 
 const Overworld = (props) => {
+
+    let { id } = useParams();
+
     const {loading, error, data} = useQuery(GET_OVERWORLD, {
-        variables: {scenarioId: props.scenarioId}
+        variables: {scenarioId: id}
     });
 
     if (loading) {

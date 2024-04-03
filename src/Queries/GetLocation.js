@@ -13,6 +13,7 @@ const GET_LOCATION = gql`
             location 
             {
                 _id
+                scenarioId
                 description
                 resizedImageInteriorFilename
                 name
@@ -44,6 +45,17 @@ const GET_LOCATION = gql`
                         name
                         status
                         emoji
+                    }
+                }
+                parentLocationId
+                parentLocation
+                {
+                    _id
+                    name
+                    locations
+                    {
+                        _id
+                        name
                     }
                 }
             }
