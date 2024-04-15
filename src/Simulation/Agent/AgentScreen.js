@@ -4,6 +4,7 @@ import GeneralTab from './GeneralTab';
 import DescriptionTab from './DescriptionTab';
 import GoalsTab from './GoalsTab';
 import PlannedActivitiesTab from './PlannedActivitiesTab';
+import ConversationTab from './ConversationTab';
 
 const AgentScreen = (props) => {
 
@@ -21,6 +22,9 @@ const AgentScreen = (props) => {
         </Tab>
         <Tab eventKey="plannedActivities" title="Tasks">
             <PlannedActivitiesTab agent={props.agent}/>
+        </Tab>
+        <Tab eventKey="conversations" title="Conversations">
+            <ConversationTab agent={props.agent}/>
         </Tab>
     </Tabs>
     );

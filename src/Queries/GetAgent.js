@@ -65,6 +65,11 @@ const GET_AGENT = gql`
                     startDateTime
                     endDateTime
                 }
+                conversations
+                {
+                    _id
+                    summary
+                }
             }
         },
     }`

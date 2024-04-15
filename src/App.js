@@ -2,11 +2,13 @@ import 'bootswatch/dist/slate/bootstrap.min.css'; // Added this :boom:
 import './App.css';
 import Overworld from './Queries/GetOverworld';
 import Location from './Queries/GetLocation';
+import Conversation from './Queries/GetConversation';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
 const client = new ApolloClient({
-    uri: 'https://pixelvalleygraphql-f5b204ed1432.herokuapp.com/graphql',
+    //uri: 'https://pixelvalleygraphql-f5b204ed1432.herokuapp.com/graphql',
+    uri: 'http://127.0.0.1:5000/graphql',
     cache: new InMemoryCache(),
     fetchOptions: {
         mode: 'no-cors'
@@ -32,6 +34,11 @@ function App() {
                     <Location />
                 </ApolloProvider>}
             />
+            <Route path="/conversation/:id" element={
+                <ApolloProvider client={client}>
+                    <Conversation />
+                </ApolloProvider>}
+            />
         </Routes>
     </BrowserRouter>
     );
@@ -41,7 +48,6 @@ function App() {
 //ninja village 659b4e1dd199ac6c4ab597c8
 //spooksville 65b13e13041e78973118f97f
 //Ancient Greek City 65d2692d22dcc866a3c70ab6
-//Foxes 65e8f84addfad2c81f1a33a6
 //Elves 65eccd03635456e5173ad235
 //NeoTokyo 65ff27fb6e43ac4559f147fc
 //Pemberley 66004b13006cd24fff3ea55a
