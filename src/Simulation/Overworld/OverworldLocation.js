@@ -22,7 +22,6 @@ const OverworldLocation = (props) => {
                 src={`https://dyifmflum502e.cloudfront.net/${props.location.resizedImageFilename}`}
                 width={512 * props.widthMultiplier}
                 height={341 * props.heightMultiplier}
-                style={{pointerEvents: "none"}}
             />
             <OverworldChibis
                 location={props.location}
