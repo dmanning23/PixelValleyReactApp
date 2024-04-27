@@ -1,7 +1,5 @@
 import React from 'react';
 import OverworldChibis from './OverworldChibis';
-import { Link } from 'react-router-dom';
-import LocationLabel from './LocationLabel';
 
 const OverworldLocation = (props) => {
 
@@ -20,14 +18,12 @@ const OverworldLocation = (props) => {
             style={locationStyle}
             width={512 * props.widthMultiplier}
             height={341 * props.heightMultiplier}>
-            <Link 
-                to={`/location/${props.location._id}`}>
-                <img
-                    src={`https://dyifmflum502e.cloudfront.net/${props.location.resizedImageFilename}`}
-                    width={512 * props.widthMultiplier}
-                    height={341 * props.heightMultiplier}
-                />
-            </Link>
+            <img
+                src={`https://dyifmflum502e.cloudfront.net/${props.location.resizedImageFilename}`}
+                width={512 * props.widthMultiplier}
+                height={341 * props.heightMultiplier}
+                style={{pointerEvents: "none"}}
+            />
             <OverworldChibis
                 location={props.location}
                 x={props.x}
@@ -36,12 +32,7 @@ const OverworldLocation = (props) => {
                 height={341 * props.heightMultiplier}
                 widthMultiplier={props.widthMultiplier}
                 heightMultiplier={props.heightMultiplier} />
-            <LocationLabel 
-                x={props.x}
-                y={props.y}
-                width={512 * props.widthMultiplier}
-                height={341 * props.heightMultiplier}
-                location={props.location} />
+            
         </div>
     );
 }

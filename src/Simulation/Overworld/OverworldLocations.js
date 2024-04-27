@@ -1,5 +1,6 @@
 import React from 'react';
 import OverworldLocation from './OverworldLocation';
+import LocationLabel from './LocationLabel';
 
 const OverworldLocations = (props) => {
 
@@ -86,11 +87,23 @@ const OverworldLocations = (props) => {
             widthMultiplier={props.widthMultiplier}
             heightMultiplier={props.heightMultiplier}/>
     );
+    const listButtons = locations.map((location) => 
+        <LocationLabel 
+            x={location.x}
+            y={location.y}
+            style={{zIndex:4}}
+            width={512 * props.widthMultiplier}
+            height={341 * props.heightMultiplier}
+            location={location.location} />
+    );
 
     return (
         <>
             {listLocations.length > 0 ? ( 
-                <>{listLocations}</>
+                <>
+                    {listLocations}
+                    {listButtons}
+                </>
             ):(
                 <></>
             )}
