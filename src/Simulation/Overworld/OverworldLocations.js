@@ -89,6 +89,7 @@ const OverworldLocations = (props) => {
     );
     const listButtons = locations.map((location) => 
         <LocationLabel 
+            key={location.location._id}
             x={location.x}
             y={location.y}
             style={{zIndex:4}}

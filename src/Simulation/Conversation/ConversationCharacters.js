@@ -12,28 +12,28 @@ const ConversationCharacters = (props) => {
     //character size = 512 * 896
 
     //add the chibi heads for characters that are inside
-    if (props.conversation.agents.length > 0) {
+    if (props.agents.length > 0) {
         let characterWidth = (512 * props.widthMultiplier) + 64
-        let totalWidth = (characterWidth * props.conversation.agents.length)
+        let totalWidth = (characterWidth * props.agents.length)
         let characterX = ((props.width / 2) - (totalWidth / 2))
         let characterY = props.y
-        for (let i = 0; i < props.conversation.agents.length; i++) {
-            createCharacter(props.conversation.agents[i], characterX, characterY)
+        for (let i = 0; i < props.agents.length; i++) {
+            createCharacter(props.agents[i], characterX, characterY)
             characterX += characterWidth
         }
     }
 
-    const listCharacters = characters.map((character) => 
+    const listCharacters = characters.map((character, index) => 
         <ConversationCharacter
-            conversation={props.conversation} 
-            key={character.agent._id}
+            key={index}
+            isSummary={props.isSummary}
+            dialogueIndex={props.dialogueIndex}
+            dialogue={props.dialogue} 
             agent={character.agent} 
             x={character.x}
             y={character.y}
             widthMultiplier={props.widthMultiplier}
-            heightMultiplier={props.heightMultiplier}
-            isSummary={props.isSummary}
-            dialogueIndex={props.dialogueIndex}/>
+            heightMultiplier={props.heightMultiplier} />
     );
 
     return (

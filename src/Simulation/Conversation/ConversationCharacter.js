@@ -4,12 +4,14 @@ const ConversationCharacter = (props) => {
 
     //TODO: catch empty conversations!
 
-    //get the character that is currently talking
-    const currentDialogue = props.conversation.dialogue[props.dialogueIndex];
-    const isCurrentCharacter = props.agent.name === currentDialogue.agentName;
-
     //decide whether we are going to filter this character
-    const isFiltered = (!props.isSummary && !isCurrentCharacter);
+    let isFiltered = !props.isSummary;
+    if (props.dialogueIndex < props.dialogue.length) {
+        //get the character that is currently talking
+        const currentDialogue = props.dialogue[props.dialogueIndex];
+        const isCurrentCharacter = props.agent.name === currentDialogue.agentName;
+        isFiltered = !props.isSummary && !isCurrentCharacter;
+    }
 
     return (
         <div 

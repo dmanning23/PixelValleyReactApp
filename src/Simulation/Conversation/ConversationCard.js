@@ -21,20 +21,20 @@ const ConversationCard = (props) => {
         height: `${height}px`, // Height
         zIndex: 2
         }}>
-        <h2 hidden={props.isSummary}>
-            {props.conversation.dialogue[props.dialogueIndex].agentName}:
-        </h2>
+        {!props.isSummary && <h2>
+            {props.dialogue[props.dialogueIndex].agentName}:
+        </h2>}
         <h2>{props.isSummary ? (
-                props.conversation.summary
+                props.summary
             ) : (
-                props.conversation.dialogue[props.dialogueIndex].text
+                props.dialogue[props.dialogueIndex].text
             )}
         </h2>
         <button
             onClick={props.handleNext}
             type="button" 
             className="btn btn-secondary btn-sm" 
-            hidden={props.dialogueIndex === (props.conversation.dialogue.length - 1)}
+            hidden={props.dialogueIndex === (props.dialogue.length - 1)}
             style={{ 
                 position: 'absolute', // Positioning type
                 right: `${border / 4}px`, // X position

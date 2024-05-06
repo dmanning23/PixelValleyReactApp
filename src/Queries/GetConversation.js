@@ -1,8 +1,9 @@
 import {gql, useQuery} from '@apollo/client'
 import React from 'react';
 import ReactLoading from 'react-loading';
-import ConversationBackground from '../Simulation/Conversation/ConversationBackground';
+import ConversationScreen from '../Simulation/Conversation/ConversationScreen';
 import { useParams } from 'react-router-dom';
+import ChatScreen from '../Simulation/Conversation/ChatScreen';
 
 const GET_CONVERSATION = gql`
     query Conversation($conversationId: ID!)
@@ -17,6 +18,14 @@ const GET_CONVERSATION = gql`
                 {
                     agentName
                     text
+                }
+                location
+                {
+                    resizedImageInteriorFilename
+                }
+                scenario
+                {
+                    imageFilename
                 }
                 initiatingAgent
                 {
@@ -65,9 +74,13 @@ const Conversation = (props) => {
     }
     else {
         return (
-            <div>
-                <ConversationBackground conversation={data.conversation.conversation}/>
-            </div>
+            <>
+            {props.isChat ? (
+                <ChatScreen conversation={data.conversation.conversation}/>
+            ) : (
+                <ConversationScreen conversation={data.conversation.conversation}/>
+            )}
+            </>
         )
     }
 }

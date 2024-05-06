@@ -11,7 +11,12 @@ const LocationLabel = (props) => {
     return (
         <>
             <Button 
-                style={{zIndex:4}}
+                style={{position:'absolute',
+                    zIndex:4, 
+                    marginTop:16,
+                    left: '50%',
+                    top: 0,
+                    transform: 'translate( -50%)'}}
                 type="button" 
                 className="btn btn-secondary btn-lg" 
                 onClick={handleShow}>

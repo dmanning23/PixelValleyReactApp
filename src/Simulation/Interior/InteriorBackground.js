@@ -4,7 +4,8 @@ import InteriorCharacters from './InteriorCharacters';
 import LocationLabel from './LocationLabel';
 import ExitButton from './ExitButton';
 import LocationNavigationButton from './LocationNavigationButton';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import TalkButton from './TalkButton';
+import { Row, Col } from 'react-bootstrap';
 
 const InteriorBackground = (props) => {
 
@@ -33,7 +34,7 @@ const InteriorBackground = (props) => {
         else if (props.location.parentLocation.locations.length > 1) {
             //We are in a child location and need to find the previous child location
             for (let i = 1; i < props.location.parentLocation.locations.length; i++) {
-                if (props.location.parentLocation.locations[i]._id == props.location._id) {
+                if (props.location.parentLocation.locations[i]._id === props.location._id) {
                     prevLocation = props.location.parentLocation.locations[i - 1];
                     break;
                 }
@@ -43,7 +44,7 @@ const InteriorBackground = (props) => {
         //Get the next child location
         if (props.location.parentLocation.locations.length > 1) {
             for (let i = 0; i < props.location.parentLocation.locations.length; i++) {
-                if (props.location.parentLocation.locations[i]._id == props.location._id) {
+                if (props.location.parentLocation.locations[i]._id === props.location._id) {
                     if (props.location.parentLocation.locations.length > i + 1) {
                         nextLocation = props.location.parentLocation.locations[i + 1];
                     }
@@ -69,19 +70,21 @@ const InteriorBackground = (props) => {
                 <Col xs={6} md={3}>
                     <ExitButton location={props.location}/>
                 </Col>
-                <Col xs={6} md={{ span: 6, offset: 2}} >
-                    <LocationLabel location={props.location}/>
-                </Col>
+
             </Row>
+            <LocationLabel location={props.location}/>
+            {props.location.agents.length >= 1 &&  
+                <TalkButton location={props.location}/>
+            }
             <Row style={{padding: '16px'}}>
                 {prevLocation && <Col xs={6} md={1}>
-                    <LocationNavigationButton location={prevLocation} text='<-'/>
+                    <LocationNavigationButton location={prevLocation} text='⬅'/>
                 </Col>}
                 {prevLocation && nextLocation && <Col xs={6} md={{ span: 1, offset: 10}}>
-                    <LocationNavigationButton location={nextLocation} text='->'/>
+                    <LocationNavigationButton location={nextLocation} text='➡️'/>
                 </Col>}
                 {!prevLocation && nextLocation && <Col xs={6} md={{ span: 1, offset: 11}}>
-                    <LocationNavigationButton location={nextLocation} text='->'/>
+                    <LocationNavigationButton location={nextLocation} text='➡'/>
                 </Col>}
             </Row>
             <InteriorCharacters

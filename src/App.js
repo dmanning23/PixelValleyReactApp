@@ -36,7 +36,12 @@ function App() {
             />
             <Route path="/conversation/:id" element={
                 <ApolloProvider client={client}>
-                    <Conversation />
+                    <Conversation isChat={false}/>
+                </ApolloProvider>}
+            />
+            <Route path="/chat/:id" element={
+                <ApolloProvider client={client}>
+                    <Conversation isChat={true}/>
                 </ApolloProvider>}
             />
         </Routes>
