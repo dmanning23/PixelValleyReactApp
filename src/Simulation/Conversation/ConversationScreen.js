@@ -53,6 +53,8 @@ const ConversationScreen = (props) => {
                 y={currentY} />
             <ConversationCard 
                 isSummary={isSummary}
+                showNextButton={isSummary || 
+                    dialogueIndex < (props.conversation.dialogue.length - 1)}
                 dialogueIndex={dialogueIndex}
                 dialogue={props.conversation.dialogue} 
                 summary={props.conversation.summary}

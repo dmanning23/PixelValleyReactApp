@@ -19,8 +19,6 @@ const ChatScreen = (props) => {
     const [isLoading, setIsLoading] = useState(false);
     const [dialogue, setDialogue] = useState([]);
 
-    const increment = () => setDialogueIndex(prevIndex => prevIndex + 1);
-
     //Method for advancing the conversation
     const handleNext = (event) => {
         if (isSummary) {
@@ -29,10 +27,10 @@ const ChatScreen = (props) => {
         }
         else{
             //move to the next dialogue option
-            increment();
+            setDialogueIndex(dialogueIndex + 1);
         }
 
-        setPlayerTurn(dialogueIndex >= dialogue.length);
+        setPlayerTurn(dialogueIndex >= dialogue.length - 1);
     };
 
     const [chatResponse] = useMutation(CHAT_RESPONSE);
@@ -81,11 +79,11 @@ const ChatScreen = (props) => {
             </ConversationBackground>
             <Row style={{padding: '16px'}}>
                 <Col xs={6} md={3}>
-                    <BackButton location={props.location}/>
+                    <BackButton location={props.conversation.location}/>
                 </Col>
             </Row>
             <ConversationCharacters
-                isSummary={isSummary}
+                isSummary={isSummary || isPlayerTurn}
                 dialogueIndex={dialogueIndex}
                 dialogue={dialogue} 
                 agents={props.conversation.agents}
@@ -107,6 +105,7 @@ const ChatScreen = (props) => {
                 ) : (
                     <ConversationCard 
                         isSummary={isSummary}
+                        showNextButton={true}
                         dialogueIndex={dialogueIndex}
                         dialogue={dialogue} 
                         summary={props.conversation.summary}
@@ -115,9 +114,8 @@ const ChatScreen = (props) => {
                         handleNext={handleNext} />
                 )
             )}
-            
         </div>
-      );
+    );
 }
 
 export default ChatScreen;

@@ -34,7 +34,7 @@ const ConversationCard = (props) => {
             onClick={props.handleNext}
             type="button" 
             className="btn btn-secondary btn-sm" 
-            hidden={props.dialogueIndex === (props.dialogue.length - 1)}
+            hidden={!props.showNextButton}
             style={{ 
                 position: 'absolute', // Positioning type
                 right: `${border / 4}px`, // X position
