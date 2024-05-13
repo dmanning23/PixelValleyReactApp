@@ -1,4 +1,4 @@
-import {gql, useQuery} from '@apollo/client'
+import { gql, useQuery } from '@apollo/client'
 import React from 'react';
 import ReactLoading from 'react-loading';
 import AgentScreen from '../Simulation/Agent/AgentScreen';
@@ -70,14 +70,20 @@ const GET_AGENT = gql`
                     _id
                     summary
                 }
+                journalEntries
+                {
+                    _id
+                    dateTime
+                    summary
+                }
             }
         },
     }`
 
 const Agent = (props) => {
 
-    const {loading, error, data} = useQuery(GET_AGENT, {
-        variables: {agentId: props.agentId}
+    const { loading, error, data } = useQuery(GET_AGENT, {
+        variables: { agentId: props.agentId }
     });
 
     if (loading) {
@@ -93,7 +99,7 @@ const Agent = (props) => {
     else {
         return (
             <div>
-                <AgentScreen agent={data.agent.agent}/>
+                <AgentScreen agent={data.agent.agent} />
             </div>
         )
     }
