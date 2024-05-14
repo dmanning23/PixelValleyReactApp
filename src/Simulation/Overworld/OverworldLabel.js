@@ -10,18 +10,18 @@ const OverworldLabel = (props) => {
 
     return (
         <>
-            <Button 
-                style={{zIndex:4}}
-                type="button" 
-                className="btn btn-secondary btn-lg" 
+            <Button
+                style={{ zIndex: 4 }}
+                type="button"
+                className="btn btn-secondary btn-lg"
                 onClick={handleShow}>
                 <h3>{props.scenario.name}</h3>
             </Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                <Modal.Title >
-                    <h1>{props.scenario.name}</h1>
-                </Modal.Title>
+                    <Modal.Title >
+                        <h1>{props.scenario.name}</h1>
+                    </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div>

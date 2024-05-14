@@ -1,4 +1,4 @@
-import {gql, useQuery} from '@apollo/client'
+import { gql, useQuery } from '@apollo/client'
 import React from 'react';
 import ReactLoading from 'react-loading';
 import OverworldBackground from '../Simulation/Overworld/OverworldBackground';
@@ -45,6 +45,12 @@ const GET_OVERWORLD = gql`
                         emoji
                     }
                 }
+                newspapers
+                {
+                    _id
+                    name
+                    description
+                }
             }
         }
     }`
@@ -53,8 +59,8 @@ const Overworld = (props) => {
 
     let { id } = useParams();
 
-    const {loading, error, data} = useQuery(GET_OVERWORLD, {
-        variables: {scenarioId: id}
+    const { loading, error, data } = useQuery(GET_OVERWORLD, {
+        variables: { scenarioId: id }
     });
 
     if (loading) {
@@ -70,7 +76,7 @@ const Overworld = (props) => {
     else {
         return (
             <div>
-                <OverworldBackground scenario={data.scenario.scenario}/>
+                <OverworldBackground scenario={data.scenario.scenario} />
             </div>
         )
     }
