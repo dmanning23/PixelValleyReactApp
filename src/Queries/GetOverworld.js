@@ -75,9 +75,7 @@ const Overworld = (props) => {
     }
     else {
         return (
-            <div>
-                <OverworldBackground scenario={data.scenario.scenario} />
-            </div>
+            <OverworldBackground scenario={data.scenario.scenario} />
         )
     }
 }
